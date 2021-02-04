@@ -24,10 +24,14 @@
         My friend <strong>{{ dude }}</strong>
         <br>
         I like {{ dude }}
-        <form class="add-new">
-            <input type="text" v-model="dude">
+        <form class="add-new" @submit.prevent="add">
+            <input type="text" v-model="newDude">
         </form>
+        <p class="preview">
+            {{ newDude }}
+        </p>
     </div>
+
     <script>
         const app = new Vue({
             el: '#app',
@@ -38,6 +42,13 @@
                     'Finn the Human',
                     'Jake the Dog'
                 ]
+            },
+            methods: {
+                add() {
+                    this.characters.push(
+                        this.newDude
+                    )
+                }
             }
         })
 
