@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <meta rel="stylesheet" href="css/bootstrap.min.css">
+    <meta rel="stylesheet" href="css/main.css">
+    <title>Vue me</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li @click="counter++"
+                v-for="dude in characters">
+                {{ dude }}
+            </li>
+        </ul>
+        <p>
+            {{ counter }}
+        </p>
+        My friend <strong>{{ dude }}</strong>
+        <br>
+        I like {{ dude }}
+        <form class="add-new">
+            <input type="text" v-model="dude">
+        </form>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                dude: 'Gender pes',
+                counter: 0,
+                characters: [
+                    'Finn the Human',
+                    'Jake the Dog'
+                ]
+            }
+        })
+
+    </script>
+</body>
+
+</html>
